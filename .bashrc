@@ -14,7 +14,9 @@ export EDITOR=vim
 
 export GOROOT=$HOME/go
 export GOPATH=$HOME/gocode
-export PATH=$PATH:~/bin:.
+
+PATH=/bin:/sbin:/usr/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/usr/games:/usr/local/games
+PATH=$PATH:~/bin:.
 
 # User specific aliases and functions
 

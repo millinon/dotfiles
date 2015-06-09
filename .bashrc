@@ -25,7 +25,7 @@ if [ -z ${TMUX+x} ]; then
 	if tmux has-session -t "main_shell" 2>/dev/null; then
 		exec tmux a -t "main_shell"
 	else
-		tmux new -s "main_shell"
+		exec tmux new -s "main_shell"
 	fi
 fi
 

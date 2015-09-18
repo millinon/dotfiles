@@ -1,11 +1,14 @@
 # .bashrc
 
+case $- in
+    *i*) ;;
+    *) return;;
+esac
+
 export EDITOR=vim
 export TERM="screen-256color"
 export GOROOT=$HOME/go
 export GOPATH=$HOME/gocode
-
-export PATH=/bin:/sbin:/usr/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/usr/games:/usr/local/games:~/bin:.
 
 set -o notify
 set -o noclobber
@@ -13,13 +16,18 @@ set -o ignoreeof
 
 shopt -s cdspell
 shopt -s checkwinsize
+shopt -s histappend
+shopt -s checkjobs
+shopt -s execfail
 
-#alias tmux="TERM=screen-256color-bce tmux"
-alias ..='cd ..'
-alias ll='ls -lhA'
-alias g='grep'
-alias l='less'
-alias s='sed'
+if [ -f /usr/bin/dircolors ]; then
+    alias ls='ls --color=auto'
+    alias grep='grep --color=auto'
+fi
+
+if [ -x /usr/bin/lesspipe ]; then
+    eval "$(SHELL=/bin/sh /usr/bin/lesspipe)"
+fi
 
 mcd ()
 {

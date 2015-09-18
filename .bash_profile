@@ -21,3 +21,15 @@ fi
 if [ -f ~/.bash_ps1 ]; then
     . ~/.bash_ps1
 fi
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+
+export PATH=$PATH:$HOME/bin:.

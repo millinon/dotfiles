@@ -13,8 +13,8 @@ set number
 
 set shiftwidth=4
 set softtabstop=4
-"set expandtab
-set noexpandtab
+set expandtab
+"set noexpandtab
 set tabstop=4
 
-nnoremap <C-L> :nohl<CR><C-L>
+nnoremap <CR> :noh<CR>

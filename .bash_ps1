@@ -2,7 +2,7 @@
 [ -z "$PS1" ] && return
 
 # Reset
-Color_Off='\[\e[0m\]'       # Text Reset
+Color_off='\[\e[0m\]'       # Text Reset
 
 # Regular Colors
 Black='\[\e[0;30m\]'        # Black
@@ -75,7 +75,12 @@ On_ICyan='\[\e[0;106m\]'    # Cyan
 On_IWhite='\[\e[0;107m\]'   # White
 
 if [ "$UID" == "0" ] ; then
-	export PS1="${Yellow}[\j] ${BIRed}\u${White}@${Green}\H${White}: ${UWhite}\w${White} \\$ ${Color_off}"
+	user="${BIRed}\u${Color_off}"
 else
-	export PS1="${Yellow}[\j] ${BIBlue}\u${White}@${Green}\H${White}: ${UWhite}\w${White} \\$ ${Color_off}"
+	user="${BIBlue}\u${Color_off}"
 fi
+	
+#jobs="${Yellow}[\j]${Color_off} "
+jobs=""
+
+export PS1="${jobs}${user}@${Green}\H${White}: ${UWhite}\w${White} \n \\$ ${Color_off}"

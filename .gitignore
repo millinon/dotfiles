@@ -1,3 +1,5 @@
 .ssh/*
 !.ssh/id_rsa.pub
 !.ssh/authorized_keys
+.git-credentials
+.Xauthority

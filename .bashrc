@@ -1,31 +1,28 @@
 # .bashrc
 
-# Source global definitions
-if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
-elif [ -f /etc/bash.bashrc ]; then
-	. /etc/bash.bashrc
-fi
-
-
-. ~/.bash_ps1.sh
-
-export TERM=xterm-256color
 export EDITOR=vim
-
+export TERM="screen-256color"
 export GOROOT=$HOME/go
 export GOPATH=$HOME/gocode
 
 export PATH=/bin:/sbin:/usr/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/usr/games:/usr/local/games:~/bin:.
 
+set -o notify
+set -o noclobber
+set -o ignoreeof
+
+shopt -s cdspell
+shopt -s checkwinsize
+
+#alias tmux="TERM=screen-256color-bce tmux"
 alias ..='cd ..'
+alias ll='ls -lhA'
+alias g='grep'
+alias l='less'
+alias s='sed'
 
-# start tmux shell
-if [ -z ${TMUX+x} ]; then
-	if tmux has-session -t "main_shell" 2>/dev/null; then
-		exec tmux a -t "main_shell"
-	else
-		exec tmux new -s "main_shell"
-	fi
-fi
-
+mcd ()
+{
+	mkdir -pv -- "$1" &&
+	cd -P -- "$1"
+}

@@ -1,3 +1,5 @@
+export TERM="screen-256color"
+
 if [ -z ${TMUX+x} ] && [ -z ${DISABLE_TMUX+x} ]; then
 	if [ ! hash tmux 2>/dev/null 2>&1 ]; then
 		echo "tmux not found; set \$DISABLE_TMUX to disable this message"

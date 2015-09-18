@@ -6,7 +6,6 @@ case $- in
 esac
 
 export EDITOR=vim
-export TERM="screen-256color"
 export GOROOT=$HOME/go
 export GOPATH=$HOME/gocode
 

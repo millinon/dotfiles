@@ -14,7 +14,11 @@ set number
 set shiftwidth=4
 set softtabstop=4
 set expandtab
-"set noexpandtab
 set tabstop=4
 
 nnoremap <CR> :noh<CR>
+
+execute pathogen#infect()
+
+syntax on
+filetype plugin indent on

@@ -1,5 +1,7 @@
 alias ..='cd ..'
+
 alias ll='ls -lhA'
-alias g='grep'
-alias l='less'
-alias s='sed'
+alias la='ls -a'
+
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'

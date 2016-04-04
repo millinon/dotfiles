@@ -1,5 +1,10 @@
-.ssh/*
-!.ssh/id_rsa.pub
-!.ssh/authorized_keys
 .git-credentials
 .Xauthority
+.bash_history
+.cache
+.vimignore
+.m2
+.rnd
+.mozilla
+.oracle_jre_usage
+.viminfo

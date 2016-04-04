@@ -1,37 +1,27 @@
-export TERM="screen-256color"
+# ~/.profile: executed by the command interpreter for login shells.
+# This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
+# exists.
+# see /usr/share/doc/bash/examples/startup-files for examples.
+# the files are located in the bash-doc package.
+
+# the default umask is set in /etc/profile; for setting the umask
+# for ssh logins, install and configure the libpam-umask package.
+#umask 022
+
 
 if [ -z ${TMUX+x} ] && [ -z ${DISABLE_TMUX+x} ]; then
-	if ! hash tmux 2>/dev/null 2>&1; then
-		echo "tmux not found; set \$DISABLE_TMUX to disable this message"
-	elif tmux has-session -t "main_shell" 2>/dev/null; then
-		exec tmux a -t "main_shell"
-	else
-		exec tmux new -s "main_shell"
-	fi
+    if ! hash tmux 2>/dev/null 2>&1; then
+        echo "tmux not found; set \$DISABLE_TMUX to disable this message"
+    elif tmux has-session -t "main_shell" 2>/dev/null; then
+        exec tmux a -t "main_shell"
+    else
+        exec tmux new -s "main_shell"
+    fi
 fi
 
-if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
-elif [ -f /etc/bash.bashrc ]; then
-	. /etc/bash.bashrc
-fi
 
-if [ -f ~/.bashrc ]; then
-    . ~/.bashrc
+if [ -n "$BASH_VERSION" ]; then
+    if [ -f "$HOME/.bashrc" ]; then
+	. "$HOME/.bashrc"
+    fi
 fi
-
-if [ -f ~/.bash_ps1 ]; then
-    . ~/.bash_ps1
-fi
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
-if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-fi
-
-export PATH=$PATH:$HOME/bin:.

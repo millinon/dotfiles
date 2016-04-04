@@ -1,0 +1,6 @@
+[user]
+	name = Phillip Goldfarb
+    email = goldfarbphillip@gmail.com
+
+[credential]
+    helper = cache

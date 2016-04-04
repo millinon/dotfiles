@@ -5,6 +5,25 @@ case $- in
     *) return;;
 esac
 
+# read global config
+for i in profile bash_completion; do
+    if [ -f "/etc/$i" ]; then
+        . "/etc/$i"
+    fi
+done
+
+# read local config
+for i in .bash_ps1 .bash_aliases; do
+    if [ -f "$HOME/$i" ]; then
+        . "$HOME/$i"
+    fi
+done
+
+if [ -d "$HOME/bin" ]; then
+    export PATH=$PATH:$HOME/bin:.
+fi
+
+#export TERM="screen-256color"
 export EDITOR=vim
 export GOROOT=$HOME/go
 export GOPATH=$HOME/gocode
@@ -18,6 +37,7 @@ shopt -s checkwinsize
 shopt -s histappend
 shopt -s checkjobs
 shopt -s execfail
+shopt -s globstar
 
 if [ -f /usr/bin/dircolors ]; then
     alias ls='ls --color=auto'

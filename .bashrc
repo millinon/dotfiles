@@ -23,7 +23,6 @@ if [ -d "$HOME/bin" ]; then
     export PATH=$PATH:$HOME/bin:.
 fi
 
-#export TERM="screen-256color"
 export EDITOR=vim
 export GOROOT=$HOME/go
 export GOPATH=$HOME/gocode

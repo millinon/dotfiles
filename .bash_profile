@@ -8,9 +8,8 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
-export TERM="screen-256color"
-
-if [ -z ${TMUX+x} ] && [ -z ${DISABLE_TMUX+x} ]; then
+# make sure we're not in a tmux session already, and make sure we don't want to disable tmux
+if [ -z ${TMUX+x} ] && [ ! -f ~/.tmux_disable ]; then
     if ! hash tmux 2>/dev/null 2>&1; then
         echo "tmux not found; set \$DISABLE_TMUX to disable this message"
     elif tmux has-session -t "main_shell" 2>/dev/null; then
@@ -19,7 +18,6 @@ if [ -z ${TMUX+x} ] && [ -z ${DISABLE_TMUX+x} ]; then
         exec tmux new -s "main_shell"
     fi
 fi
-
 
 if [ -n "$BASH_VERSION" ]; then
     if [ -f "$HOME/.bashrc" ]; then

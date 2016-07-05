@@ -13,9 +13,9 @@ if [ -z ${TMUX+x} ] && [ ! -f ~/.tmux_disable ]; then
     if ! hash tmux 2>/dev/null 2>&1; then
         echo "tmux not found; set \$DISABLE_TMUX to disable this message"
     elif tmux has-session -t "main_shell" 2>/dev/null; then
-        exec tmux a -t "main_shell"
+        exec tmux -2 a -t "main_shell"
     else
-        exec tmux new -s "main_shell"
+        exec tmux -2 new -s "main_shell"
     fi
 fi
 

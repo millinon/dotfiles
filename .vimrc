@@ -19,6 +19,9 @@ set softtabstop=4
 set expandtab
 set tabstop=4
 
+set colorcolumn=80
+highlight ColorColumn ctermbg=0 guibg=lightgrey
+
 nnoremap <CR> :noh<CR>
 
 execute pathogen#infect()

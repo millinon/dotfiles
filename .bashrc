@@ -52,3 +52,18 @@ mcd ()
 	mkdir -pv -- "$1" &&
 	cd -P -- "$1"
 }
+
+ifind()
+{
+    case "$#" in
+        1)
+            find . -iname "$1"
+            ;;
+        2)
+            find "$2" -iname "$1"
+            ;;
+        *)
+            echo "Usage: ifind <iname> [<dir>]"
+            ;;
+    esac
+}
